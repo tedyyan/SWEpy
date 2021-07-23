@@ -4,14 +4,14 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="swepy",
-    version="1.9.4",
-    author="William Norris",
-    author_email="wino6687@colorado.edu",
-    description="A python package for obtaining and manipulating Tb files from the MEaSUREs database",
+    name="flymepy",
+    version="1.0.0",
+    author="Teddy Yan",
+    author_email="hense123@mail.com",
+    description="A python package for fun",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/wino6687/SWEpy",
+    url="https://github.com/tedyyan/SWEpy",
     packages=setuptools.find_packages(),
     classifiers=(
         "Programming Language :: Python :: 3",

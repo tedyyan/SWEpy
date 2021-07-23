@@ -14,10 +14,10 @@ install:
   - "./.travis/install.sh"
   - pip install codecov
 before_script:
-  - python3 swepy/tests/mock_server.py &
+  - python3 flymepy/tests/mock_server.py &
 script:
   - chmod +x .travis/test.sh
-  - "./.travis/test.sh --cov=swepy"
+  - "./.travis/test.sh --cov=flymepy"
 after_success:
   - codecov -t 3bc941e0-dcd8-4ba1-9548-eaaf9cd291e0
 deploy:

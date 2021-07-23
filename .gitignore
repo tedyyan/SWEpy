@@ -1,14 +1,14 @@
 swe_1day.geojson
 .ipynb_checkpoints
 .DS_Store
-swepy/.DS_Store
+flymepy/.DS_Store
 .pypirc
 swepy.egg-info/
 __pycache__/
 swepy/__pycache__/
 build.sh
 bld.bat
-swepy/nsidcDownloader/__pycache__
+flymepy/nsidcDownloader/__pycache__
 /swe_fulldata
 conda_upload.sh
 dist/

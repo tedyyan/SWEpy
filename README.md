@@ -1,22 +1,22 @@
-![Build Status](https://travis-ci.org/wino6687/SWEpy.svg?branch=master)
-![codecov](https://codecov.io/gh/wino6687/SWEpy/branch/master/graph/badge.svg)
-![Documentation Status](https://readthedocs.org/projects/swepy/badge/?version=latest)
+![Build Status](https://travis-ci.org/wino6687/FLYMEpy.svg?branch=master)
+![codecov](https://codecov.io/gh/wino6687/FLYMEpy/branch/master/graph/badge.svg)
+![Documentation Status](https://readthedocs.org/projects/flymepy/badge/?version=latest)
 ![license](https://img.shields.io/badge/license-MIT-brightgreen)
 ![OS](https://img.shields.io/badge/OS-Linux64%2C%20MacOS-green.svg)
 [![DOI](https://zenodo.org/badge/132654953.svg)](https://zenodo.org/badge/latestdoi/132654953)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
-# SWEpy
+# FLYMEpy
 
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
-| [![Conda Recipe](https://img.shields.io/badge/recipe-swepy-green.svg)](https://anaconda.org/conda-forge/swepy) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/swepy.svg)](https://anaconda.org/conda-forge/swepy) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/swepy.svg)](https://anaconda.org/conda-forge/swepy) ![PyPI version](https://badge.fury.io/py/swepy.svg) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/swepy.svg)](https://anaconda.org/conda-forge/swepy) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-flymepy-green.svg)](https://anaconda.org/conda-forge/flymepy) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/flymepy.svg)](https://anaconda.org/conda-forge/flymepy) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/flymepy.svg)](https://anaconda.org/conda-forge/flymepy) ![PyPI version](https://badge.fury.io/py/flymepy.svg) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/flymepy.svg)](https://anaconda.org/conda-forge/flymepy) |
 
 
 # Quick Start Guide
-### For Full Documentation, Please see the [Read The Docs](https://swepy.readthedocs.io/en/latest/)!
+### For Full Documentation, Please see the [Read The Docs](https://flymepy.readthedocs.io/en/latest/)!
 
-SWEpy is a Python library designed to simplify access to a [passive microwave brightness temperature dataset](https://doi.org/10.5067/MEASURES/CRYOSPHERE/NSIDC-0630.001) available at the National Snow and Ice Data Center (NSIDC). This dataset contains Northern and Southern hemisphere imagery along with Equatorial imagery, and can be quite useful in analyzing snow water equivalent (SWE) over large spatial extents. SWEpy contains tools to web scrape, geographically subset, and concatenate files into time cubes. There is an automated workflow to scrape long time series while periodically stopping to geographically subset and concatenate files in order to reduce disk impact.
+FLYMEpy is a Python library designed to simplify access to a [passive microwave brightness temperature dataset](https://doi.org/10.5067/MEASURES/CRYOSPHERE/NSIDC-0630.001) available at the National Snow and Ice Data Center (NSIDC). This dataset contains Northern and Southern hemisphere imagery along with Equatorial imagery, and can be quite useful in analyzing snow water equivalent (SWE) over large spatial extents. FLYMEpy contains tools to web scrape, geographically subset, and concatenate files into time cubes. There is an automated workflow to scrape long time series while periodically stopping to geographically subset and concatenate files in order to reduce disk impact.
 
 ## Setup:
 
@@ -30,12 +30,12 @@ The libraries used in this analysis, namely pynco, can be finicky with the chann
 
 Using the yaml file (.yml) create a new conda environment
 ```{python}
-conda env create -f swepy_env.yml
+conda env create -f flymepy_env.yml
 ```
 
-### Alternative: Install SWEpy Using Conda or pip:
+### Alternative: Install FLYMEpy Using Conda or pip:
 
-SWEpy is available from anaconda, and will install all dependencies when installed. It is also available from pip (Pypi), but will not install all the dependencies automatically.
+FLYMEpy is available from anaconda, and will install all dependencies when installed. It is also available from pip (Pypi), but will not install all the dependencies automatically.
 
 ** Important ** ```conda-forge``` must be the first channel in your .condarc file.
 
@@ -46,23 +46,23 @@ channels:
 ```
 
 ```{python}
-conda install swepy
+conda install flymepy
 ```
 
 
 ### 3. Install ipykernel (if using jupyter and conda environments)
 
 ```{python}
-source activate swepy_env
+source activate flymepy_env
 python -m ipykernel install --user --name <env name> --display-name "<display name>"
 ```
 **Do not include the brackets <>**
 
-## Using SWEpy for analyzing SWE:
+## Using FLYMEpy for analyzing SWE:
 
-1. Import SWEpy's data pipeline:
+1. Import FLYMEpy's data pipeline:
 ```{python}
-import swepy.pipeline as pipeline
+import flymepy.pipeline as pipeline
 ```
 
 2. Instantiate the class with working directory and bounding coordinates
@@ -100,7 +100,7 @@ import swepy.pipeline as pipeline
 	swe.subset()
 	swe.concatenate()
 
-	swe.concatenate(swepy.subset(swepy.scrape()))
+	swe.concatenate(flymepy.subset(flymepy.scrape()))
 	```
  	b. Or, use ```scrape_all``` to avoid massive file sizes:
 	```{python}
@@ -114,12 +114,12 @@ import swepy.pipeline as pipeline
 	swe.set_grid(ul = [-145,66], lr = [-166, -16])
 	```
 
-## Using SWEpy's Web Scraper Alone:
+## Using FLYMEpy's Web Scraper Alone:
 
 * The web scraper is enabled automatically in the scrape_all workflow, however it can also be used as a standalone function!
 
 ```{python}
-from swepy.nsidcDownloader import nsidcDownloader
+from flymepy.nsidcDownloader import nsidcDownloader
 
 ## Ways to instantiate nsidcDownloader
 nD = nsidcDownloader.nsidcDownloader(username="user", password="pass", folder=os.getcwd())
@@ -152,12 +152,12 @@ nD.download_file(**file)
 
 
 # Troubleshooting:
-1. Missing image error when loading in swepy or when calling swepy functions
+1. Missing image error when loading in flymepy or when calling flymepy functions
 	- These are channel dependency errors and likely arise due to some of your packages being on conda-forge and others being on other channels. Namely, ```pynco``` struggles with this.
 	- Make sure ```conda-forge``` is at the top of your ```.condarc``` file and then run a ```conda update --all```.
 	- https://conda-forge.org/docs/conda-forge_gotchas.html#using-multiple-channels
 
-2. Importing SWEpy fails, or pandas fails to find numpy.
+2. Importing FLYMEpy fails, or pandas fails to find numpy.
 	- This seems to be an issue caused by numpy v1.15.0. I reverted back to 1.14.5 and reinstalled everything and it worked again.
 
 If you experience any other issues, do not hesitate to open an issue in this repo!
