@@ -4,22 +4,7 @@ channels:
   - defaults
 dependencies:
   # core python
-  - pytest-cov
-  - codecov
-  - matplotlib
-  - python=3.6
   - pytest
-  - pandas==0.25.3
   - requests
-  - tqdm
-  - scipy
-  # geo libraries
-  - pynco
-  - gdal
-  - affine
-  - netCDF4 
   - xarray
-  - fsspec
-  - mapboxgl
-  - jenkspy
   - zarr
